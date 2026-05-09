@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Backend Node.js
+  backend:
+    image: node:18-alpine
+    container_name: sensorhub-backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-tu_clave_secreta_aqui}
+      - MQTT_BROKER=${MQTT_BROKER:-broker.hivemq.com}
+      - MQTT_PORT=${MQTT_PORT:-1883}
+      - MQTT_TOPIC=${MQTT_TOPIC:-itics/mgti/isai/sensor}
+      - DB_PATH=/app/database/datos.db
+    command: npm start
+    restart: unless-stopped
+    networks:
+      - sensorhub-network
+
+  # Base de datos (opcional, por ahora usamos SQLite)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: sensorhub-db
+  #   environment:
+  #     - POSTGRES_DB=sensorhub
+  #     - POSTGRES_USER=admin
+  #     - POSTGRES_PASSWORD=${DB_PASSWORD:-changeme}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - sensorhub-network
+
+volumes:
+  node_modules:
+
+networks:
+  sensorhub-network:
+    driver: bridge

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SensorHub - Monitoreo en Tiempo Real</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">📊</span>
+        <span>SensorHub</span>
+      </div>
+      <div class="nav-links">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#caracteristicas" class="nav-link">Características</a>
+        <a href="#especificaciones" class="nav-link">Especificaciones</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <button class="btn-login" onclick="irAlLogin()">Acceso</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Monitoreo de Sensores en Tiempo Real</h1>
+      <p>Solución completa para capturar, procesar y visualizar datos de sensores IoT con conectividad global vía MQTT</p>
+      <button class="btn-primary" onclick="irAlLogin()">Comenzar Ahora</button>
+    </div>
+    <div class="hero-image">
+      <div class="device-mockup">
+        <div class="device-screen">
+          📱 Dashboard en Vivo
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARACTERÍSTICAS -->
+  <section id="caracteristicas" class="caracteristicas">
+    <h2>Características Principales</h2>
+    <div class="features-grid">
+      
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Conectividad Global</h3>
+        <p>Transmisión de datos vía red 4G/LTE usando el módulo SIM7070 integrado en la LilyGO</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Tiempo Real</h3>
+        <p>Recepción y visualización instantánea de datos mediante protocolo MQTT de bajo overhead</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Autenticación Segura</h3>
+        <p>Sistema de login con encriptación JWT y almacenamiento seguro de credenciales</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Análisis Histórico</h3>
+        <p>Gráficos interactivos para analizar tendencias de los últimos 7 días</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h3>Geolocalización</h3>
+        <p>Integración de GPS del SIM7070 para rastreo en tiempo real</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Almacenamiento Local</h3>
+        <p>Buffer en dispositivo para sincronización cuando hay pérdida de conexión</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESPECIFICACIONES TÉCNICAS -->
+  <section id="especificaciones" class="especificaciones">
+    <h2>Especificaciones Técnicas</h2>
+    <div class="specs-container">
+      
+      <div class="specs-column">
+        <h3>Hardware</h3>
+        <ul class="specs-list">
+          <li>
+            <strong>Dispositivo IoT:</strong> LilyGO SIM7070
+          </li>
+          <li>
+            <strong>Conectividad:</strong> 4G/LTE, GPS integrado
+          </li>
+          <li>
+            <strong>Comunicación:</strong> ESP-NOW + MQTT
+          </li>
+          <li>
+            <strong>Sensors:</strong> Temperatura, Humedad, Presión
+          </li>
+          <li>
+            <strong>Precisión GPS:</strong> ±5 metros
+          </li>
+        </ul>
+      </div>
+
+      <div class="specs-column">
+        <h3>Backend</h3>
+        <ul class="specs-list">
+          <li>
+            <strong>Servidor:</strong> Node.js + Express
+          </li>
+          <li>
+            <strong>Broker MQTT:</strong> HiveMQ Cloud
+          </li>
+          <li>
+            <strong>Base de Datos:</strong> SQLite
+          </li>
+          <li>
+            <strong>Autenticación:</strong> JWT + bcrypt
+          </li>
+          <li>
+            <strong>API REST:</strong> Endpoints asegurados
+          </li>
+        </ul>
+      </div>
+
+      <div class="specs-column">
+        <h3>Frontend</h3>
+        <ul class="specs-list">
+          <li>
+            <strong>Visualización:</strong> Charts.js
+          </li>
+          <li>
+            <strong>Actualización:</strong> Polling cada 5 segundos
+          </li>
+          <li>
+            <strong>Responsive:</strong> Móvil, Tablet, Desktop
+          </li>
+          <li>
+            <strong>Interactividad:</strong> Gráficos dinámicos
+          </li>
+          <li>
+            <strong>Rango:</strong> Última 24h e histórico 7 días
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FLUJO DE DATOS -->
+  <section class="flujo-datos">
+    <h2>Flujo de Datos</h2>
+    <div class="flujo-diagram">
+      <div class="flujo-item">
+        <div class="flujo-icon">🛰️</div>
+        <span>LilyGO SIM7070</span>
+      </div>
+      <div class="flujo-arrow">→</div>
+      <div class="flujo-item">
+        <div class="flujo-icon">🌐</div>
+        <span>Broker MQTT</span>
+      </div>
+      <div class="flujo-arrow">→</div>
+      <div class="flujo-item">
+        <div class="flujo-icon">⚙️</div>
+        <span>Backend Node.js</span>
+      </div>
+      <div class="flujo-arrow">→</div>
+      <div class="flujo-item">
+        <div class="flujo-icon">💾</div>
+        <span>Base de Datos</span>
+      </div>
+      <div class="flujo-arrow">→</div>
+      <div class="flujo-item">
+        <div class="flujo-icon">📊</div>
+        <span>Dashboard Web</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO -->
+  <section class="casos-uso">
+    <h2>Casos de Uso</h2>
+    <div class="casos-grid">
+      <div class="caso-card">
+        <h4>🏭 Industria</h4>
+        <p>Monitoreo de temperatura en plantas de producción de forma remota</p>
+      </div>
+      <div class="caso-card">
+        <h4>🌾 Agricultura</h4>
+        <p>Control de condiciones climáticas en invernaderos remotos</p>
+      </div>
+      <div class="caso-card">
+        <h4>⚕️ Salud</h4>
+        <p>Seguimiento de parámetros ambientales en instalaciones médicas</p>
+      </div>
+      <div class="caso-card">
+        <h4>🏢 Smart Building</h4>
+        <p>Gestión automática de sistemas HVAC basada en datos en tiempo real</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="cta-content">
+      <h2>¿Listo para comenzar?</h2>
+      <p>Crea tu cuenta ahora y accede al dashboard en tiempo real</p>
+      <button class="btn-primary-large" onclick="irAlLogin()">Registrarse Ahora</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div id="contacto" class="footer-content">
+      <div class="footer-section">
+        <h4>SensorHub</h4>
+        <p>Solución IoT profesional para monitoreo en tiempo real</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <p>Email: info@sensorhub.com<br>
+           Teléfono: +52 (555) 123-4567</p>
+      </div>
+      <div class="footer-section">
+        <h4>Redes</h4>
+        <p>LinkedIn | GitHub | Twitter</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 SensorHub. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    function irAlLogin() {
+      window.location.href = '/login.html';
+    }
+  </script>
+</body>
+</html>

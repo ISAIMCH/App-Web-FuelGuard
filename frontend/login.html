@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso - SensorHub</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="auth-header">
+        <h1>SensorHub</h1>
+        <p>Monitoreo Inteligente</p>
+      </div>
+
+      <!-- FORMULARIO LOGIN -->
+      <div id="loginForm" class="auth-form">
+        <h2>Iniciar Sesión</h2>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Contraseña:</label>
+            <input type="password" id="loginPassword" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn-submit">Entrar</button>
+        </form>
+        <p class="form-switch">¿No tienes cuenta? <a href="#" onclick="toggleForms()">Regístrate aquí</a></p>
+        <div id="loginError" class="error-message"></div>
+      </div>
+
+      <!-- FORMULARIO REGISTRO -->
+      <div id="registerForm" class="auth-form" style="display: none;">
+        <h2>Crear Cuenta</h2>
+        <form onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="registerName">Nombre Completo:</label>
+            <input type="text" id="registerName" required placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email:</label>
+            <input type="email" id="registerEmail" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Contraseña:</label>
+            <input type="password" id="registerPassword" required placeholder="••••••••">
+          </div>
+          <div class="form-group">
+            <label for="registerPasswordConfirm">Confirmar Contraseña:</label>
+            <input type="password" id="registerPasswordConfirm" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn-submit">Crear Cuenta</button>
+        </form>
+        <p class="form-switch">¿Ya tienes cuenta? <a href="#" onclick="toggleForms()">Inicia sesión</a></p>
+        <div id="registerError" class="error-message"></div>
+      </div>
+
+      <div class="demo-info">
+        <p>📧 Demo: demo@sensorhub.com | Contraseña: demo123</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

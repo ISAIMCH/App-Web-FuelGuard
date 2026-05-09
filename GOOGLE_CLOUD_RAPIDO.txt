@@ -1,0 +1,198 @@
+# 🚀 INICIO RÁPIDO - GOOGLE CLOUD
+
+## ✅ Ya Configurado para tu IP: 34.145.56.208
+
+Tu aplicación ya está lista. Solo sigue estos pasos:
+
+---
+
+## PASO 1️⃣: Abrir Firewall en Google Cloud (2 minutos)
+
+1. Ir a: https://console.cloud.google.com/
+2. Menú → **VPC Network** → **Firewall rules**
+3. Click: **Create Firewall Rule**
+4. Configurar:
+   ```
+   Name: allow-sensorhub
+   Direction: Ingress
+   Action: Allow
+   Protocol: TCP
+   Port: 8000
+   Source IPv4: 0.0.0.0/0
+   ```
+5. Click: **Create**
+
+✅ **Listo**
+
+---
+
+## PASO 2️⃣: Conectar por SSH (1 minuto)
+
+**Opción A: Desde Google Cloud Console**
+- Ir a Compute Engine → Instances
+- Click en: **SSH in browser**
+
+**Opción B: Desde terminal local**
+```bash
+gcloud compute ssh tu-instancia --zone=us-central1-a
+```
+
+---
+
+## PASO 3️⃣: Ejecutar Script de Instalación (5 minutos)
+
+En la terminal de Google Cloud:
+
+```bash
+# Ir a tu carpeta del proyecto
+cd ~/AplicacionWeb
+
+# Hacer script ejecutable
+chmod +x google-cloud-install.sh
+
+# Ejecutar instalación automática
+./google-cloud-install.sh
+```
+
+**El script hace todo:**
+✅ Instala Node.js
+✅ Instala dependencias
+✅ Configura PM2
+✅ Inicia servidor automáticamente
+
+---
+
+## PASO 4️⃣: ¡ACCEDER! 🎉
+
+Abre tu navegador:
+
+```
+http://34.145.56.208:8000
+```
+
+Deberías ver:
+✅ Landing page de SensorHub
+✅ Botón "Acceso"
+
+---
+
+## ¿Qué hacer ahora?
+
+### 1. Registrarse
+- Nombre: Tu nombre
+- Email: tu@email.com
+- Contraseña: algo seguro
+
+### 2. Entrar al Dashboard
+- Ver secciones: Resumen, Tiempo Real, Histórico, Mapa
+- (Vacío por ahora si no tienes sensor conectado)
+
+### 3. Conectar LilyGO
+- Configurar LilyGO para enviar datos al broker MQTT
+- Los datos llegarán automáticamente al dashboard
+
+---
+
+## 📊 Comandos Útiles en Google Cloud
+
+```bash
+# Ver estado del servidor
+pm2 status
+
+# Ver logs en tiempo real
+pm2 logs sensorhub
+
+# Reiniciar servidor
+pm2 restart sensorhub
+
+# Detener servidor
+pm2 stop sensorhub
+
+# Iniciar de nuevo
+pm2 start sensorhub
+```
+
+---
+
+## 🔒 IMPORTANTE: Seguridad
+
+Si vuelves a editar `.env` en Google Cloud:
+
+```bash
+nano backend/.env
+```
+
+Cambiar:
+```
+JWT_SECRET=algo_muy_seguro_y_aleatorio_aqui
+NODE_ENV=production
+```
+
+Guardar (Ctrl+O, Enter, Ctrl+X)
+
+Reiniciar:
+```bash
+pm2 restart sensorhub
+```
+
+---
+
+## 📱 ¿Cómo acceder desde otros dispositivos?
+
+Ya que está en internet, puedes:
+
+- **Desde tu teléfono:** http://34.145.56.208:8000
+- **Desde otra computadora:** http://34.145.56.208:8000
+- **Desde otro país:** http://34.145.56.208:8000
+
+**FUNCIONARÁ DESDE CUALQUIER LADO** ✅
+
+---
+
+## ❌ Troubleshooting
+
+### "No puedo conectar a http://34.145.56.208:8000"
+```
+1. Verificar firewall abierto (Paso 1)
+2. Ver logs: pm2 logs sensorhub
+3. Reiniciar: pm2 restart sensorhub
+```
+
+### "Error: port 8000 in use"
+```
+pm2 stop sensorhub
+pm2 delete sensorhub
+./google-cloud-install.sh
+```
+
+### "No hay datos en dashboard"
+```
+Normal si no tienes LilyGO enviando datos aún.
+Espera a conectar el dispositivo.
+```
+
+---
+
+## 📝 Documentación Completa
+
+Ver: `GOOGLE_CLOUD_SETUP.md` para más detalles
+
+---
+
+## ✅ Checklist Rápido
+
+- [ ] Firewall abierto en puerto 3000
+- [ ] SSH conectado a Google Cloud
+- [ ] Script instalacion ejecutado
+- [ ] Puedo acceder a http://34.145.56.208:3000
+- [ ] Puedo crear cuenta
+- [ ] Puedo ver dashboard
+- [ ] pm2 status muestra "online"
+
+---
+
+¡Listo! Tu aplicación está en internet. 🌍
+
+URL: **http://34.145.56.208:3000**
+
+Comparte esta URL con quien quiera acceder. 🚀
